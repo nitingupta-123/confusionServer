@@ -6,11 +6,7 @@ const Leaders = require('../models/leader');
 leaderRouter.use(bodyParser.json());
 
 leaderRouter.route('/')
-    // .all((req,res,next)=>{
-    //     res.statusCode=200;
-    //     res.setHeader('Content-Type','text/html');
-    //     next();
-    // })
+
     .get((req, res, next) => {
         Leaders.find({})
             .then((leader) => {
@@ -48,12 +44,7 @@ leaderRouter.route('/')
 
 leaderRouter.route('/:leaderId')
 
-    // .all((req, res, next) => {
-    //     res.statusCode = 200;
-    //     res.setHeader('Content-Type', 'text/html');
-    //     next();
-    // })
-
+    
     .get((req, res, next) => {
         Leaders.findById(req.params.leaderId)
         .then((leader) => {

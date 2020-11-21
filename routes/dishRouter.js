@@ -8,14 +8,10 @@ const Dishes = require('../models/dishes');
 dishRouter.use(bodyParser.json());
 
 dishRouter.route('/')
-    // .all((req,res,next)=>{
-    //     res.statusCode=200;
-    //     res.setHeader('Content-Type','text/html');
-    //     next();
-    // })
+
 
     .get((req, res, next) => {
-        // res.end('Will send all the dishes to you!');
+       
         Dishes.find({})
             .then((dishes) => {
                 res.statusCode = 200;
@@ -27,7 +23,6 @@ dishRouter.route('/')
 
 
     .post((req, res, next) => {
-        // res.end('Will add the dish: ' + req.body.name + ' with details: ' + req.body.description);
         Dishes.create(req.body)
             .then((dish) => {
                 console.log('Dish Created', dish);
@@ -46,7 +41,6 @@ dishRouter.route('/')
 
 
     .delete((req, res, next) => {
-        //res.end('Deleting all dishes');
         Dishes.remove({})
             .then((resp) => {
                 res.statusCode = 200;
@@ -58,15 +52,10 @@ dishRouter.route('/')
 
 dishRouter.route('/:dishId')
 
-    // .all((req,res,next)=>{
-    //     res.statusCode=200;
-    //     res.setHeader('Content-Type','text/html');
-    //     next();
-    // })
+   
 
 
     .get((req, res, next) => {
-        //res.end('Will send details of the dishes:' + req.params.dishId + ' to you!');
         Dishes.findById(req.params.dishId)
             .then((dishes) => {
                 res.statusCode = 200;
@@ -94,8 +83,6 @@ dishRouter.route('/:dishId')
                 res.json(dishes);
             }, (err) => next(err))
             .catch((err) => next(err));
-        // res.write('Updating the dish: '+req.params.dishId);
-        // res.end('Will update the dish '+req.body.name + ' with description: '+ req.body.description);
     })
 
 
@@ -107,14 +94,12 @@ dishRouter.route('/:dishId')
                 res.json(resp);
             }, (err) => next(err))
             .catch((err) => next(err));
-        //res.end('Deleting dishes:'+req.params.dishId);
     })
 
 
 dishRouter.route('/:dishId/comments')
 
     .get((req, res, next) => {
-        //res.end('Will send details of the dishes:' + req.params.dishId + ' to you!');
         Dishes.findById(req.params.dishId)
             .then((dish) => {
                 if (dish != null) {
@@ -152,8 +137,7 @@ dishRouter.route('/:dishId/comments')
                 }
             }, (err) => next(err))
             .catch((err) => next(err));
-        // res.statusCode = 403;
-        // res.end('POST operation not supported on ' + req.url);
+       
     })
 
 
@@ -166,7 +150,7 @@ dishRouter.route('/:dishId/comments')
 
     .delete((req, res, next) => {
         Dishes.findById(req.params.dishId)
-            .then((resp) => {
+            .then((dish) => {
                 if (dish != null) {
                     for (var i = dish.comments.length - 1; i >= 0; i--) {
                         dish.comments.id(dish.comments[i]._id).remove();
@@ -186,14 +170,12 @@ dishRouter.route('/:dishId/comments')
                 }
             }, (err) => next(err))
             .catch((err) => next(err));
-        //res.end('Deleting dishes:'+req.params.dishId);
     })
 
 
 
 dishRouter.route('/:dishId/comments/:commentId')
     .get((req, res, next) => {
-        //res.end('Will send details of the dishes:' + req.params.dishId + ' to you!');
         Dishes.findById(req.params.dishId)
             .then((dish) => {
 
@@ -257,8 +239,7 @@ dishRouter.route('/:dishId/comments/:commentId')
 
             }, (err) => next(err))
             .catch((err) => next(err));
-        // res.write('Updating the dish: '+req.params.dishId);
-        // res.end('Will update the dish '+req.body.name + ' with description: '+ req.body.description);
+        
     })
 
     .delete((req, res, next) => {
