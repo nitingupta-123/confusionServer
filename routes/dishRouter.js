@@ -297,3 +297,9 @@ dishRouter.route('/:dishId/comments/:commentId')
             .catch((err) => next(err));
     });
 module.exports = dishRouter;
+
+
+
+
+
+// req -new -key MIICXQIBAAKBgQDQEA1gC4iPGp13vdoN/oEtAyYIBOVe4yiXTKQ0CLlqGMOQbGxPQ93BeaLLPnL5i72MpZbOyIQ3MT2yPygUkrlG8P9vGIX27aGZUe8DJsWcown2G13GKvFXgiVEIq8YEBrvg2nMba/SODeh05Eu5nfdt2rUUF5VSYvxoV8pu7oFWwIDAQABAoGBAMtlVd31iGr1Bske9ILHsPoS4OPn/V60TGMUDlW7zZ5VVSDjjUIzwx43TZjIlNc073kGC5ZcWTwnS/vrV8A86xcWRS3HQNmU9bkUUsMTEpA5egD/vHpHGIrfiHLiqIqKQ9edx/NfLMbFMEcfhoyfeJStid3TwIT/cwlhmwxpqZAxAkEA76ytdbEJ9woiUWE9lXRqSsNenvr0qqdzAl61I+quYXS5k8dIKzIl3+jWEkhU0X8rB5w8dWJk+WkWCV/7Vz7wQwJBAN48JNSa6TlTF58wOFgaPrg/EdjJkRYVpLWoba5/YFUxgV3aadvep+nqSK1RnDDNMOHVG+Dz1xdwezAm3A9ScQkCQEomrnPfFiosJHnxD9CRd+ExmLCvC8tQizCMhJZcIR9dsZya5yUWGsmvi6uUXUmDgpiUKdBXZM4VSRAVdfmEK2kCQFgDU8bLjyA/0zQdYcMqqbpIaCYGNiqb6b5z9PRNx/YVhBmKXbBRLwkJ2zyg/I2rRfe6ca8WgxHqXy9DxJVg3hkCQQCtZDaa6BCIktQ1g3QMEHf50x3T1P9QCqMQ3GEi55EOJAiY+oOwIUgAXm6I+qYD6Sklkk507U5KuOy8QXrKk/S6 -out cert.csr
