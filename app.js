@@ -1,22 +1,28 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var session = require('express-session');
-var FileStore = require('session-file-store')(session);
-var passport = require('passport');
-var app = express();
-var authenticate = require('./authenticate');
+const  createError = require('http-errors');
+const  express = require('express');
+const  path = require('path');
+const  cookieParser = require('cookie-parser');
+const  logger = require('morgan');
+const  mongoose = require('mongoose');
+const  session = require('express-session');
+const FileStore = require('session-file-store')(session);
+const  passport = require('passport');
+const  app = express();
+const  authenticate = require('./authenticate');
 const url = 'mongodb://localhost:27017/conFusion';
 const connect = mongoose.connect(url);
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var dishRouter = require('./routes/dishRouter');
-var promoRouter = require('./routes/promotionsRouter');
-var leaderRouter = require('./routes/leaderRouter');
+const  indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const  dishRouter = require('./routes/dishRouter');
+const  promoRouter = require('./routes/promotionsRouter');
+const  leaderRouter = require('./routes/leaderRouter');
+const  uploadRouter = require('./routes/uploadRouter');
+
+
+
+
+
 //const session = require('express-session');
 
 
@@ -55,6 +61,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/dishes', dishRouter);
 app.use('/promo', promoRouter);
 app.use('/leader', leaderRouter);
+app.use('/imageUpload',uploadRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
